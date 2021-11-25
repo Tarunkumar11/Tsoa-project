@@ -5,9 +5,11 @@ import { UsersService, UserCreationParams } from "./usersService";
 @Route("users")
 export class UsersController extends Controller {
     
+    
     @Get("{userId}")
-    public async getUser( @Path() userId: number, @Query() name?: string): Promise<User> {
-      return new UsersService().get(userId, name);
+    public async getUser( @Path() userId: number, @Query() name?: string, @Query() email?:string): Promise<User> {
+      console.log("name: ", name, "email: ", email)
+      return new UsersService().get(userId, name, email);
     }
   
     @SuccessResponse("201", "Created") // Custom success response

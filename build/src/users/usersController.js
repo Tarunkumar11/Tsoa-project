@@ -22,9 +22,10 @@ exports.UsersController = void 0;
 const tsoa_1 = require("tsoa");
 const usersService_1 = require("./usersService");
 let UsersController = class UsersController extends tsoa_1.Controller {
-    getUser(userId, name) {
+    getUser(userId, name, email) {
         return __awaiter(this, void 0, void 0, function* () {
-            return new usersService_1.UsersService().get(userId, name);
+            console.log("name: ", name, "email: ", email);
+            return new usersService_1.UsersService().get(userId, name, email);
         });
     }
     createUser(requestBody) {
@@ -38,7 +39,8 @@ let UsersController = class UsersController extends tsoa_1.Controller {
 __decorate([
     (0, tsoa_1.Get)("{userId}"),
     __param(0, (0, tsoa_1.Path)()),
-    __param(1, (0, tsoa_1.Query)())
+    __param(1, (0, tsoa_1.Query)()),
+    __param(2, (0, tsoa_1.Query)())
 ], UsersController.prototype, "getUser", null);
 __decorate([
     (0, tsoa_1.SuccessResponse)("201", "Created") // Custom success response

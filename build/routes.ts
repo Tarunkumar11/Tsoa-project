@@ -47,6 +47,7 @@ export function RegisterRoutes(app: express.Router) {
             const args = {
                     userId: {"in":"path","name":"userId","required":true,"dataType":"double"},
                     name: {"in":"query","name":"name","dataType":"string"},
+                    email: {"in":"query","name":"email","dataType":"string"},
             };
 
             // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa

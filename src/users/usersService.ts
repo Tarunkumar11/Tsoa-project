@@ -4,10 +4,10 @@ import { User } from "./user";
 export type UserCreationParams = Pick<User, "email" | "name" | "phoneNumbers">;
 
 export class UsersService {
-  public get(id: number, name?: string): User {
+  public get(id: number, name?: string, email?:string): User {
     return {
       id,
-      email: "jane@doe.com",
+      email: email|| "jane@doe.com",
       name: name ?? "Jane Doe",
       status: "Happy",
       phoneNumbers: [],
